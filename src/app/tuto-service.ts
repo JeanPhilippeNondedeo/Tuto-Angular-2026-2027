@@ -5,6 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class TutoService {
 
-  public donneDuService: string = 'tuto';
+  public donneDuService: string = 'tutoService';
   
 }
