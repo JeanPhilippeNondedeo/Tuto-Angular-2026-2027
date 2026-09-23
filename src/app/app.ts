@@ -27,83 +27,57 @@ export class App {
     public colorRed: string = "red";
     public textOutput: string = "";
 
-
     public exempleOutput(exempleText: string) {
         this.textOutput = exempleText;
     }
 
 
+    //COURS 2
+    public conditionIf: boolean = false;
+    public listFors = [
+        {id:1, name: 'toto'},
+        {id:2, name: 'tata'},
+        {id:3, name: 'titi'}
+    ];
+    public donnerRecu: string = '';
+
+    constructor(private tutoService: TutoService) {
+        this.donnerRecu = tutoService.donneDuService;
+    }
+
+
+    //REACTIVE FORM
+    public profileForm = new FormGroup({
+        email: new FormControl('', Validators.email),
+        age: new FormControl(''),
+    });
+    //TEMPLATE DRIVEN FORM
+    public user = {
+        firstName: '',
+        lastName: '',
+    };
 
 
 
+    public changeColor(){
+        this.colorRed === "red" ? this.colorRed = "blue" : this.colorRed = "red" ;
+    }
 
 
 
+    public changeBoolean() {
+        this.conditionIf = !this.conditionIf;
+    }
 
+    public changeForm() {
+        this.profileForm.patchValue({
+            email: 'miage@m1.com',
+            age: '100',
+        })
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // public conditionIf: boolean = false;
-    // public listFors = [
-    //     {id:1, name: 'toto'},
-    //     {id:2, name: 'tata'},
-    //     {id:3, name: 'titi'}
-    // ];
-    // public donnerRecu: string = '';
-    //
-    // constructor(private tutoService: TutoService) {
-    //     this.donnerRecu = tutoService.donneDuService;
-    // }
-    //
-    //
-    // //REACTIVE FORM
-    // public profileForm = new FormGroup({
-    //     email: new FormControl('', Validators.email),
-    //     age: new FormControl(''),
-    // });
-    // //TEMPLATE DRIVEN FORM
-    // public user = {
-    //     firstName: '',
-    //     lastName: '',
-    // };
-    //
-    //
-    //
-    // public changeColor(){
-    //     this.colorRed = "blue";
-    // }
-    //
-    //
-    //
-    // public changeBoolean() {
-    //     this.conditionIf = !this.conditionIf;
-    // }
-    //
-    // public changeForm() {
-    //     this.profileForm.patchValue({
-    //         email: 'miage@m1.com',
-    //         age: '100',
-    //     })
-    // }
-    //
-    // public onSubmit() {
-    //     console.log('Formulaire soumis !', this.user);
-    // }
+    public onSubmit() {
+        alert('Formulaire soumis !');
+        console.log('Formulaire soumis !', this.user);
+    }
 }
